@@ -1,5 +1,6 @@
 %quickref - короткая инфа о IPython
 https://ipython.readthedocs.io/en/stable/index.html - Доки по питону
+https://pyformat.info/ - Все о форматировании
 
 %autocall:
     Make functions callable without having to type parentheses.
@@ -25,4 +26,37 @@ Out[75]: 'Tunnel 0'
 
 In [76]: string1.capitalize()
 Out[76]: 'Fastethernet'
+
+--------Отступы после каждого параметра-------------------
+In [5]: vlan, mac, intf = ['100', 'aabb.cc80.7000', 'G10/1']
+In [6]: print("{:>15} {:>15} {:>15}".format(vlan, mac, intf) )
+            100  aabb.cc80.7000           G10/1
+
+-----Сколько цифр выводить после запятой---------------------
+In [21]: print("{:.3f}".format(10.0/3) )
+3.333
+
+In [8]: print("%.3f" % (10.0/3))
+3.333
+
+------Задаем имена заменяемым параметрам-----------------------
+In [24]: '{ip}/{mask}'.format(mask=24, ip='10.1.1.1')
+Out[24]: '10.1.1.1/24'
+
+In [27]: '{1}/{0}'.format(24, '10.1.1.1')
+Out[27]: '10.1.1.1/24'
+
+
+------------Можно не повторять передачу параметров ----------------
+In [21]: ip_template = '''
+    ...: IP address:
+    ...: {0:<8} {1:<8} {2:<8} {3:<8}
+    ...: {0:08b} {1:08b} {2:08b} {3:08b}
+    ...: '''
+
+In [22]: print(ip_template.format(192, 100, 1, 1))
+
+IP address:
+192      100      1        1
+11000000 01100100 00000001 00000001
 
