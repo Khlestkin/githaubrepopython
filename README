@@ -7,3 +7,22 @@ https://ipython.readthedocs.io/en/stable/index.html - Доки по питону
     Toggle autoindent on/off (deprecated)
 
 
+----------для питона ----------------
+$ sudo pip3 install ipython
+For run the installed iPython for the Python 3 use:
+$ python3 `which ipython3`
+
+---Округление до двух знаков -----------
+In [8]: round(10/3.0, 2)
+Out[8]: 3.33
+
+---преобразование заглавной буквы -------
+
+In [74]: string2 = 'tunnel 0'
+
+In [75]: string2.capitalize()
+Out[75]: 'Tunnel 0'
+
+In [76]: string1.capitalize()
+Out[76]: 'Fastethernet'
+
