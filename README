@@ -1,1 +1,9 @@
-test
+%quickref - короткая инфа о IPython
+https://ipython.readthedocs.io/en/stable/index.html - Доки по питону
+
+%autocall:
+    Make functions callable without having to type parentheses.
+%autoindent:
+    Toggle autoindent on/off (deprecated)
+
+
