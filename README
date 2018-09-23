@@ -13,6 +13,25 @@ https://docs.python.org/3/library/string.html#format-string-syntax Еще о ф�
 In [2]: print('-' * 30)
 ------------------------------
 
+---------Перебор словаря------------
+In [15]: for key, value in r1.items():
+    ...:     print(key + ' => '+ value)
+    ...:     
+IOS => 15.4
+IP => 10.255.0.1
+hostname => london_r1
+model => 4451
+
+----------Цикл в цикле-------------------------
+In [18]: commands = ['switchport mode access', 'spanning-tree portfast', 'spanning-tree bpduguard enabl
+    ...: e']
+In [19]: fast_int = ['0/1','0/3','0/4','0/7','0/9','0/10','0/11']
+In [20]: for intf in fast_int:
+    ...:     print('interface {}'.format(intf))
+    ...:     for command in commands:
+    ...:         print(' {}'.format(command))
+
+
 ----------для питона ----------------
 $ sudo pip3 install ipython
 For run the installed iPython for the Python 3 use:
