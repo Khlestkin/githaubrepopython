@@ -348,9 +348,31 @@ In [9]: try:
   ....:
 !
 
+------------------Конструкция with--------------------------------
 
+In [1]: with open('r1.txt', 'r') as f:
+  ....:     for line in f:
+  ....:         print(line)
+  ....:
+!
 
+----------------Работа с двумя файлами---------------------------------
+In [5]: with open('r1.txt') as src, open('result.txt', 'w') as dest:
+   ...:     for line in src:
+   ...:         if line.startswith('service'):
+   ...:             dest.write(line)
+   ...:
 
+In [6]: cat result.txt
+service timestamps debug datetime msec localtime show-timezone year
+service timestamps log datetime msec localtime show-timezone year
+service password-encryption
+service sequence-numbers
+
+--------------Присвоение нескольким переменным--------------
+Нижнее подчеркивание можно использовать несколкьо раз если эту переменную не собираемся использовать в дальнейшем
+In [13]: dhcp = '00:09:BB:3D:D6:58   10.1.10.2        86250       dhcp-snooping   10    FastEthernet0/1'
+In [14]: mac, ip, _, _, vlan, intf = dhcp.split()
 
 
 
