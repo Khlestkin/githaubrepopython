@@ -337,6 +337,16 @@ ip ssh version 2
 !
 
 
+-------------------Закрытие файла------------------------------
+In [9]: try:
+  ....:     f = open('r1.txt', 'r')
+  ....:     print(f.read())
+  ....: except IOError:
+  ....:     print('No such file')
+  ....: finally:
+  ....:     f.close()
+  ....:
+!
 
 
 
