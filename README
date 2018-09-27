@@ -237,3 +237,48 @@ Out[75]: True
 In [76]: "a".isalnum()
 Out[76]: True
 
+--------------------File read --------------------
+
+read() - считывает содержимое файла в строку
+readline() - считывает файл построчно
+readlines() - считывает строки файла и создает список из строк
+
+
+In [1]: f = open('r1.txt')
+In [2]: f.read()
+Out[2]: '!\nservice timestamps debug datetime msec localtime show-timezone year\nservice timestamps log datetime msec localtime show-timezone year\nservice password-encryption\nservice sequence-numbers\n!\nno ip domain lookup\n!\nip ssh version 2\n!\n'
+In [3]: f.read()
+Out[3]: ''
+
+In [4]: f = open('r1.txt')
+In [5]: f.readline()
+Out[5]: '!\n'
+In [6]: f.readline()
+Out[6]: 'service timestamps debug datetime msec localtime show-timezone year\n'
+
+In [7]: f = open('r1.txt')
+In [8]: for line in f:
+   ...:     print(line)
+   ...:
+
+
+In [9]: f = open('r1.txt')
+In [10]: f.readlines()
+Out[10]:
+['!\n',
+ 'service timestamps debug datetime msec localtime show-timezone year\n',
+ 'service timestamps log datetime msec localtime show-timezone year\n',
+ 'service password-encryption\n',
+ 'service sequence-numbers\n',
+ '!\n',
+ 'no ip domain lookup\n',
+ '!\n',
+ 'ip ssh version 2\n',
+ '!\n']
+
+
+Чтобы ещё раз считать информацию из файла, нужно воспользоваться методом seek, который перемещает курсор в необходимое положение.
+In [18]: f.seek(0)
+
+
+
