@@ -281,4 +281,80 @@ Out[10]:
 In [18]: f.seek(0)
 
 
+---------------Запись в файл--------------------
+
+w - открыть файл для записи. Если файл существует, то его содержимое удаляется
+
+a - открыть файл для дополнения записи. Данные добавляются в конец файла
+
+При этом, оба режима создают файл, если он не существует
+
+Для записи в файл используются такие методы:
+
+write() - записать в файл одну строку
+writelines() - позволяет передавать в качестве аргумента список строк
+
+
+In [2]: f = open('r2.txt', 'w')
+
+In [3]: cfg_lines_as_string = '\n'.join(cfg_lines)
+In [4]: cfg_lines_as_string
+Out[4]: '!\nservice timestamps debug datetime msec localtime show-timezone year\nservice timestamps log datetime msec localtime show-timezone year\nservice password-encryption\nservice sequence-numbers\n!\nno ip domain lookup\n!\nip ssh version 2\n!'
+In [5]: f.write(cfg_lines_as_string)
+In [7]: f.close()
+
+
+In [1]: cfg_lines = ['!',
+   ...:  'service timestamps debug datetime msec localtime show-timezone year',
+   ...:  'service timestamps log datetime msec localtime show-timezone year',
+   ...:  'service password-encryption',
+   ...:  'service sequence-numbers',
+   ...:  '!',
+   ...:  'no ip domain lookup',
+   ...:  '!',
+   ...:  'ip ssh version 2',
+   ...:  '!']
+In [9]: f = open('r2.txt', 'w')
+In [10]: f.writelines(cfg_lines)
+In [11]: f.close()
+In [12]: cat r2.txt
+!service timestamps debug datetime msec localtime show-timezone yearservice timestamps log datetime msec localtime show-timezone yearservice password-encryptionservice sequence-numbers!no ip domain lookup!ip ssh version 2!
+
+cfg_lines3 = [ line + '\n' for line in cfg_lines ]
+In [18]: f = open('r2.txt', 'w')
+In [19]: f.writelines(cfg_lines3)
+In [20]: f.close()
+In [21]: cat r2.txt
+!
+service timestamps debug datetime msec localtime show-timezone year
+service timestamps log datetime msec localtime show-timezone year
+service password-encryption
+service sequence-numbers
+!
+no ip domain lookup
+!
+ip ssh version 2
+!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
