@@ -374,6 +374,70 @@ service sequence-numbers
 In [13]: dhcp = '00:09:BB:3D:D6:58   10.1.10.2        86250       dhcp-snooping   10    FastEthernet0/1'
 In [14]: mac, ip, _, _, vlan, intf = dhcp.split()
 
+Использование звездочки в присвоении переменных
+In [18]: vlans = [10, 11, 13, 30]
+In [19]: first, *rest = vlans
+In [20]: first
+Out[20]: 10
+In [21]: rest
+Out[21]: [11, 13, 30]
+
+
+---------------пример распаковки в цикле for--------------------
+access_template = ['switch mode access',
+                   'switchport access vlan',
+                   'spanning-tree']
+access = {'0/12':10,
+          '0/14':11,
+          '0/16':17}
+for intf in access:
+    print('interface FastEthernet' + intf)
+    for command in access_template:
+        if command.endswith('spanning-tree'):
+            print(' {} {}'.format(command, access[intf]))
+        else:
+            print(' {}'.format(command))
+
+interface FastEthernet0/12
+ switch mode access
+ switchport access vlan
+ spanning-tree 10
+interface FastEthernet0/14
+ switch mode access
+ switchport access vlan
+ spanning-tree 11
+interface FastEthernet0/16
+ switch mode access
+ switchport access vlan
+ spanning-tree 17
+
+
+table = [['100', 'a1b2.ac10.7000', 'DYNAMIC', 'Gi0/1'],
+ ['200', 'a0d4.cb20.7000', 'DYNAMIC', 'Gi0/2'],
+ ['300', 'acb4.cd30.7000', 'DYNAMIC', 'Gi0/3'],
+ ['100', 'a2bb.ec40.7000', 'DYNAMIC', 'Gi0/4'],
+ ['500', 'aa4b.c550.7000', 'DYNAMIC', 'Gi0/5'],
+ ['200', 'a1bb.1c60.7000', 'DYNAMIC', 'Gi0/6'],
+ ['300', 'aa0b.cc70.7000', 'DYNAMIC', 'Gi0/7']]
+for line in table:
+    vlan, mac, _,intf = line
+    print(vlan, mac, intf)
+
+100 a1b2.ac10.7000 Gi0/1
+200 a0d4.cb20.7000 Gi0/2
+300 acb4.cd30.7000 Gi0/3
+100 a2bb.ec40.7000 Gi0/4
+500 aa4b.c550.7000 Gi0/5
+200 a1bb.1c60.7000 Gi0/6
+300 aa0b.cc70.7000 Gi0/7
+
+
+
+
+
+
+
+
 
 
 
