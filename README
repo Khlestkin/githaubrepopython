@@ -3,7 +3,7 @@ https://ipython.readthedocs.io/en/stable/index.html - Доки по питону
 https://pyformat.info/ - Все о форматировании
 https://docs.python.org/3/library/string.html#format-string-syntax Еще о форматировании
 
-
+-
 %autocall:
     Make functions callable without having to type parentheses.
 %autoindent:
