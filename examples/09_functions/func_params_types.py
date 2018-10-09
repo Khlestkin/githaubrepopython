@@ -9,7 +9,7 @@ def cfg_to_list(cfg_file, delete_exclamation):
     return result
 
 
-print(cfg_to_list('r1.txt', True))
+print(cfg_to_list(cfg_file='r1.txt', delete_exclamation=True))
 print(cfg_to_list('r1.txt', False))
 
 
